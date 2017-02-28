@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.jakewharton.rxbinding.widget.RxTextView;
 
 
+import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observable;
 
 import java.util.List;
@@ -67,9 +68,10 @@ public class RegistrationDemoActivity extends AppCompatActivity {
 
         //inisialisasi retrovit
         retrofit = new Retrofit.Builder().
-                baseUrl(getString(R.string.base_url)).
-                addCallAdapterFactory(RxJavaCallAdapterFactory.create()).
-                build();
+                baseUrl(getString(R.string.base_url))
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
 
         //initialisation service sample
         service = retrofit.create(SampleService.class);
