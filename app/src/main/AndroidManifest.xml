@@ -18,6 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegistrationDemoActivity" />
+        <activity android:name=".MultipeTapDemoActivity" />
+        <activity android:name=".TextDemoActivity" />
     </application>
 
 </manifest>

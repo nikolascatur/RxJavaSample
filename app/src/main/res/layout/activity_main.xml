@@ -26,6 +26,12 @@
         android:layout_height="wrap_content"
         android:id="@+id/btn_registration_demo"
         android:text="@string/registration_demo" />
-
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/btn_text_demo"
+            android:text="Text Demo"
+            />
     </LinearLayout>
+
 </RelativeLayout>

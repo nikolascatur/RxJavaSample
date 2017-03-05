@@ -91,6 +91,8 @@ public class RegistrationDemoActivity extends AppCompatActivity {
                     @Override
                     public Boolean call(String input)
                     {
+                        boolean val = (input.length() >3);
+                        Log.d("rx","filter "+input+"  "+input.length()+" val "+val);
                         return (input.length() > 3);
                     }
                 })
@@ -98,7 +100,9 @@ public class RegistrationDemoActivity extends AppCompatActivity {
                 .flatMap(new Func1<String, Observable<Boolean>>() {
                     @Override
                     public Observable<Boolean> call(String input) {
-                        return checkIfEmailExistFromApi(input);
+                        Observable<Boolean> checkEmail = checkIfEmailExistFromApi(input);
+                        Log.d("rx"," flatmap  "+checkEmail);
+                        return checkEmail;
                     }
                 });
 
@@ -191,6 +195,7 @@ public class RegistrationDemoActivity extends AppCompatActivity {
 
             @Override
             public void onNext(Boolean aBoolean) {
+                Log.d("rx","Email observer onNext  "+String.valueOf(aBoolean.booleanValue()));
                 showEmailAlert(aBoolean.booleanValue());
             }
         };
@@ -304,7 +309,7 @@ public class RegistrationDemoActivity extends AppCompatActivity {
                 .flatMap(new Func1<List<String>, Observable<String>>() {
                     @Override
                     public Observable<String> call(List<String> strings) {
-                        Log.d("rx","value "+strings.get(0));
+                        //Log.d("rx","value "+strings.get(0));
                         return Observable.from(strings);
                     }
                 }).contains(input)
