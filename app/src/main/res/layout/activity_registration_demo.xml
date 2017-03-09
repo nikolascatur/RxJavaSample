@@ -9,6 +9,10 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="phone.nikolas.com.rxjavasample.RegistrationDemoActivity">
 
+    <data>
+        <import type="android.view.View" />
+
+        </data>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

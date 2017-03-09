@@ -137,7 +137,7 @@ public class RegistrationDemoActivity extends AppCompatActivity {
                 RxTextView.textChanges(etEmail)
                         .map(new Func1<CharSequence, Boolean>() {
                             public Boolean call(CharSequence charSequence) {
-                                return TextUtils.isEmpty(charSequence);
+                                return TextUtils.isEmpty(charSequence) && (charSequence.toString().indexOf('@') > -1) && (charSequence.toString().indexOf('.') > -1) ;
                             }
                         }),
                 RxTextView.textChanges(etPassword)
